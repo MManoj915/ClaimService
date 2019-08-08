@@ -1,0 +1,513 @@
+<?xml version="1.0" encoding="utf-8"?>
+<definitions xmlns:wsp="http://www.w3.org/ns/ws-policy" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:wsam="http://www.w3.org/2007/05/addressing/metadata" xmlns:tns="http://ws.bus.dimensions.com/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:wsp1_2="http://schemas.xmlsoap.org/ws/2004/09/policy" xmlns:wsu="http://docs.oasis-open.org/wss/2004/01/oasis-200401-wss-wssecurity-utility-1.0.xsd" name="PayerIntegrationWSService" targetNamespace="http://ws.bus.dimensions.com/" xmlns="http://schemas.xmlsoap.org/wsdl/">
+  <types>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://www.pbmswitch.com:9090/PayerIntegrationWS?xsd=1" namespace="http://www.haad.ae/DataDictionary/CommonTypes" />
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://www.pbmswitch.com:9090/PayerIntegrationWS?xsd=2" namespace="http://ws.bus.dimensions.com/" />
+    </xsd:schema>
+    <xsd:schema>
+      <xsd:import schemaLocation="http://www.pbmswitch.com:9090/PayerIntegrationWS?xsd=3" namespace="ValidationSchema" />
+    </xsd:schema>
+  </types>
+  <message name="getPriorAuthByRequestID">
+    <part name="parameters" element="tns:getPriorAuthByRequestID" />
+  </message>
+  <message name="getPriorAuthByRequestIDResponse">
+    <part name="parameters" element="tns:getPriorAuthByRequestIDResponse" />
+  </message>
+  <message name="DhcTlException">
+    <part name="fault" element="tns:DhcTlException" />
+  </message>
+  <message name="processERXRequest">
+    <part name="parameters" element="tns:processERXRequest" />
+  </message>
+  <message name="processERXRequestResponse">
+    <part name="parameters" element="tns:processERXRequestResponse" />
+  </message>
+  <message name="getInsuredMemeberDetails">
+    <part name="parameters" element="tns:getInsuredMemeberDetails" />
+  </message>
+  <message name="getInsuredMemeberDetailsResponse">
+    <part name="parameters" element="tns:getInsuredMemeberDetailsResponse" />
+  </message>
+  <message name="uploadClaimSubmission">
+    <part name="parameters" element="tns:uploadClaimSubmission" />
+  </message>
+  <message name="uploadClaimSubmissionResponse">
+    <part name="parameters" element="tns:uploadClaimSubmissionResponse" />
+  </message>
+  <message name="uploadPostOfficeRequest">
+    <part name="parameters" element="tns:uploadPostOfficeRequest" />
+  </message>
+  <message name="uploadPostOfficeRequestResponse">
+    <part name="parameters" element="tns:uploadPostOfficeRequestResponse" />
+  </message>
+  <message name="processPriorRequest">
+    <part name="parameters" element="tns:processPriorRequest" />
+  </message>
+  <message name="processPriorRequestResponse">
+    <part name="parameters" element="tns:processPriorRequestResponse" />
+  </message>
+  <message name="getNewPriorRequests">
+    <part name="parameters" element="tns:getNewPriorRequests" />
+  </message>
+  <message name="getNewPriorRequestsResponse">
+    <part name="parameters" element="tns:getNewPriorRequestsResponse" />
+  </message>
+  <message name="getNewPriorAuthorizations">
+    <part name="parameters" element="tns:getNewPriorAuthorizations" />
+  </message>
+  <message name="getNewPriorAuthorizationsResponse">
+    <part name="parameters" element="tns:getNewPriorAuthorizationsResponse" />
+  </message>
+  <message name="getNonDownloadedBatchIDs">
+    <part name="parameters" element="tns:getNonDownloadedBatchIDs" />
+  </message>
+  <message name="getNonDownloadedBatchIDsResponse">
+    <part name="parameters" element="tns:getNonDownloadedBatchIDsResponse" />
+  </message>
+  <message name="downloadSubmissionDetail">
+    <part name="parameters" element="tns:downloadSubmissionDetail" />
+  </message>
+  <message name="downloadSubmissionDetailResponse">
+    <part name="parameters" element="tns:downloadSubmissionDetailResponse" />
+  </message>
+  <message name="submitReimpursementClaims">
+    <part name="parameters" element="tns:submitReimpursementClaims" />
+  </message>
+  <message name="submitReimpursementClaimsResponse">
+    <part name="parameters" element="tns:submitReimpursementClaimsResponse" />
+  </message>
+  <message name="Exception">
+    <part name="fault" element="tns:Exception" />
+  </message>
+  <message name="uploadPriorRequest">
+    <part name="parameters" element="tns:uploadPriorRequest" />
+  </message>
+  <message name="uploadPriorRequestResponse">
+    <part name="parameters" element="tns:uploadPriorRequestResponse" />
+  </message>
+  <message name="confirmBatchReceived">
+    <part name="parameters" element="tns:confirmBatchReceived" />
+  </message>
+  <message name="confirmBatchReceivedResponse">
+    <part name="parameters" element="tns:confirmBatchReceivedResponse" />
+  </message>
+  <message name="getMemberDetailsByTpa">
+    <part name="parameters" element="tns:getMemberDetailsByTpa" />
+  </message>
+  <message name="getMemberDetailsByTpaResponse">
+    <part name="parameters" element="tns:getMemberDetailsByTpaResponse" />
+  </message>
+  <message name="findTransactionsByBatchID">
+    <part name="parameters" element="tns:findTransactionsByBatchID" />
+  </message>
+  <message name="findTransactionsByBatchIDResponse">
+    <part name="parameters" element="tns:findTransactionsByBatchIDResponse" />
+  </message>
+  <message name="getNewCanceledRequests">
+    <part name="parameters" element="tns:getNewCanceledRequests" />
+  </message>
+  <message name="getNewCanceledRequestsResponse">
+    <part name="parameters" element="tns:getNewCanceledRequestsResponse" />
+  </message>
+  <message name="getNonDownloadedReversedActivities">
+    <part name="parameters" element="tns:getNonDownloadedReversedActivities" />
+  </message>
+  <message name="getNonDownloadedReversedActivitiesResponse">
+    <part name="parameters" element="tns:getNonDownloadedReversedActivitiesResponse" />
+  </message>
+  <message name="confirmReversedActivitiesDownloaded">
+    <part name="parameters" element="tns:confirmReversedActivitiesDownloaded" />
+  </message>
+  <message name="confirmReversedActivitiesDownloadedResponse">
+    <part name="parameters" element="tns:confirmReversedActivitiesDownloadedResponse" />
+  </message>
+  <message name="cancelPriorAuth">
+    <part name="parameters" element="tns:cancelPriorAuth" />
+  </message>
+  <message name="cancelPriorAuthResponse">
+    <part name="parameters" element="tns:cancelPriorAuthResponse" />
+  </message>
+  <message name="getNewClaims">
+    <part name="parameters" element="tns:getNewClaims" />
+  </message>
+  <message name="getNewClaimsResponse">
+    <part name="parameters" element="tns:getNewClaimsResponse" />
+  </message>
+  <message name="reverseAct">
+    <part name="parameters" element="tns:reverseAct" />
+  </message>
+  <message name="reverseActResponse">
+    <part name="parameters" element="tns:reverseActResponse" />
+  </message>
+  <portType name="PayerIntegrationWS">
+    <operation name="getPriorAuthByRequestID">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getPriorAuthByRequestIDRequest" message="tns:getPriorAuthByRequestID" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getPriorAuthByRequestIDResponse" message="tns:getPriorAuthByRequestIDResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getPriorAuthByRequestID/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="processERXRequest">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/processERXRequestRequest" message="tns:processERXRequest" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/processERXRequestResponse" message="tns:processERXRequestResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/processERXRequest/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="getInsuredMemeberDetails">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getInsuredMemeberDetailsRequest" message="tns:getInsuredMemeberDetails" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getInsuredMemeberDetailsResponse" message="tns:getInsuredMemeberDetailsResponse" />
+    </operation>
+    <operation name="uploadClaimSubmission">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadClaimSubmissionRequest" message="tns:uploadClaimSubmission" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadClaimSubmissionResponse" message="tns:uploadClaimSubmissionResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadClaimSubmission/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="uploadPostOfficeRequest">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadPostOfficeRequestRequest" message="tns:uploadPostOfficeRequest" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadPostOfficeRequestResponse" message="tns:uploadPostOfficeRequestResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadPostOfficeRequest/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="processPriorRequest">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/processPriorRequestRequest" message="tns:processPriorRequest" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/processPriorRequestResponse" message="tns:processPriorRequestResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/processPriorRequest/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="getNewPriorRequests">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewPriorRequestsRequest" message="tns:getNewPriorRequests" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewPriorRequestsResponse" message="tns:getNewPriorRequestsResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewPriorRequests/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="getNewPriorAuthorizations">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewPriorAuthorizationsRequest" message="tns:getNewPriorAuthorizations" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewPriorAuthorizationsResponse" message="tns:getNewPriorAuthorizationsResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewPriorAuthorizations/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="getNonDownloadedBatchIDs">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNonDownloadedBatchIDsRequest" message="tns:getNonDownloadedBatchIDs" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNonDownloadedBatchIDsResponse" message="tns:getNonDownloadedBatchIDsResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNonDownloadedBatchIDs/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="downloadSubmissionDetail">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/downloadSubmissionDetailRequest" message="tns:downloadSubmissionDetail" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/downloadSubmissionDetailResponse" message="tns:downloadSubmissionDetailResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/downloadSubmissionDetail/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="submitReimpursementClaims">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/submitReimpursementClaimsRequest" message="tns:submitReimpursementClaims" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/submitReimpursementClaimsResponse" message="tns:submitReimpursementClaimsResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/submitReimpursementClaims/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/submitReimpursementClaims/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+    <operation name="uploadPriorRequest">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadPriorRequestRequest" message="tns:uploadPriorRequest" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadPriorRequestResponse" message="tns:uploadPriorRequestResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/uploadPriorRequest/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="confirmBatchReceived">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/confirmBatchReceivedRequest" message="tns:confirmBatchReceived" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/confirmBatchReceivedResponse" message="tns:confirmBatchReceivedResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/confirmBatchReceived/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="getMemberDetailsByTpa">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getMemberDetailsByTpaRequest" message="tns:getMemberDetailsByTpa" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getMemberDetailsByTpaResponse" message="tns:getMemberDetailsByTpaResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getMemberDetailsByTpa/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="findTransactionsByBatchID">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/findTransactionsByBatchIDRequest" message="tns:findTransactionsByBatchID" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/findTransactionsByBatchIDResponse" message="tns:findTransactionsByBatchIDResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/findTransactionsByBatchID/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="getNewCanceledRequests">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewCanceledRequestsRequest" message="tns:getNewCanceledRequests" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewCanceledRequestsResponse" message="tns:getNewCanceledRequestsResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewCanceledRequests/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="getNonDownloadedReversedActivities">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNonDownloadedReversedActivitiesRequest" message="tns:getNonDownloadedReversedActivities" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNonDownloadedReversedActivitiesResponse" message="tns:getNonDownloadedReversedActivitiesResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNonDownloadedReversedActivities/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="confirmReversedActivitiesDownloaded">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/confirmReversedActivitiesDownloadedRequest" message="tns:confirmReversedActivitiesDownloaded" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/confirmReversedActivitiesDownloadedResponse" message="tns:confirmReversedActivitiesDownloadedResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/confirmReversedActivitiesDownloaded/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="cancelPriorAuth">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/cancelPriorAuthRequest" message="tns:cancelPriorAuth" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/cancelPriorAuthResponse" message="tns:cancelPriorAuthResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/cancelPriorAuth/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="getNewClaims">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewClaimsRequest" message="tns:getNewClaims" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewClaimsResponse" message="tns:getNewClaimsResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/getNewClaims/Fault/DhcTlException" name="DhcTlException" message="tns:DhcTlException" />
+    </operation>
+    <operation name="reverseAct">
+      <input wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/reverseActRequest" message="tns:reverseAct" />
+      <output wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/reverseActResponse" message="tns:reverseActResponse" />
+      <fault wsam:Action="http://ws.bus.dimensions.com/PayerIntegrationWS/reverseAct/Fault/Exception" name="Exception" message="tns:Exception" />
+    </operation>
+  </portType>
+  <binding name="PayerIntegrationWSPortBinding" type="tns:PayerIntegrationWS">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <operation name="getPriorAuthByRequestID">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="processERXRequest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getInsuredMemeberDetails">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+    </operation>
+    <operation name="uploadClaimSubmission">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="uploadPostOfficeRequest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="processPriorRequest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNewPriorRequests">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNewPriorAuthorizations">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNonDownloadedBatchIDs">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="downloadSubmissionDetail">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="submitReimpursementClaims">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+    <operation name="uploadPriorRequest">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="confirmBatchReceived">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getMemberDetailsByTpa">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="findTransactionsByBatchID">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNewCanceledRequests">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNonDownloadedReversedActivities">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="confirmReversedActivitiesDownloaded">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="cancelPriorAuth">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="getNewClaims">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="DhcTlException">
+        <soap:fault use="literal" name="DhcTlException" namespace="" />
+      </fault>
+    </operation>
+    <operation name="reverseAct">
+      <soap:operation soapAction="" />
+      <input>
+        <soap:body use="literal" />
+      </input>
+      <output>
+        <soap:body use="literal" />
+      </output>
+      <fault name="Exception">
+        <soap:fault use="literal" name="Exception" namespace="" />
+      </fault>
+    </operation>
+  </binding>
+  <service name="PayerIntegrationWSService">
+    <port name="PayerIntegrationWSPort" binding="tns:PayerIntegrationWSPortBinding">
+      <soap:address location="http://www.pbmswitch.com:9090/PayerIntegrationWS" />
+    </port>
+  </service>
+</definitions>

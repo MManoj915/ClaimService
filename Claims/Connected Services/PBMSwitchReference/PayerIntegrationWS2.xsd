@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="http://www.haad.ae/DataDictionary/CommonTypes" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="HeaderDispositionFlag">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TEST" />
+      <xs:enumeration value="PRODUCTION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="AuthorizationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Eligibility" />
+      <xs:enumeration value="Authorization" />
+      <xs:enumeration value="Cancellation" />
+      <xs:enumeration value="Extension" />
+      <xs:enumeration value="Status Inquiry" />
+      <xs:enumeration value="Prescription" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DiagnosisType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Principal" />
+      <xs:enumeration value="Secondary" />
+      <xs:enumeration value="Admitting" />
+      <xs:enumeration value="ReasonForVisit" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ObservationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="CPT" />
+      <xs:enumeration value="HL7v3 Native" />
+      <xs:enumeration value="LOINC" />
+      <xs:enumeration value="SNOMED CT" />
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="File" />
+      <xs:enumeration value="Financial" />
+      <xs:enumeration value="Universal Dental" />
+      <xs:enumeration value="ERX" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ResubmissionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="correction" />
+      <xs:enumeration value="internal complaint" />
+      <xs:enumeration value="legacy" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>

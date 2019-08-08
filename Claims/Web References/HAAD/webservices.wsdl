@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="utf-8"?>
+<WL5G3N0:definitions xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:WL5G3N1="https://www.shafafiya.org/v2/" xmlns:WL5G3N2="http://schemas.xmlsoap.org/wsdl/soap/" targetNamespace="https://www.shafafiya.org/v2/" xmlns:WL5G3N0="http://schemas.xmlsoap.org/wsdl/">
+  <WL5G3N0:types>
+    <s:schema xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:WL5G3N3="http://schemas.xmlsoap.org/wsdl/soap12/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="https://www.shafafiya.org/v2/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/" xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" elementFormDefault="qualified" targetNamespace="https://www.shafafiya.org/v2/" xmlns:s="http://www.w3.org/2001/XMLSchema">
+      <s:element name="UploadTransaction">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileContent" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UploadTransactionResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="UploadTransactionResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorReport" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewTransactionsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlTransactions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFile">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="DownloadTransactionFileResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="DownloadTransactionFileResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="file" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="direction" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="callerLicense" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ePartner" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="transactionID" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="transactionStatus" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionFromDate" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="transactionToDate" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="minRecordCount" type="s:int" />
+            <s:element minOccurs="1" maxOccurs="1" name="maxRecordCount" type="s:int" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SearchTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SearchTransactionsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloaded">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="fileId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="SetTransactionDownloadedResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="SetTransactionDownloadedResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrescriptions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="payerID" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="memberID" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetPrescriptionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetPrescriptionsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="prescription" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDRGToEClaim">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="originalFileContent" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="originalFileName" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="baseRate" type="s:decimal" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="AddDRGToEClaimResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="AddDRGToEClaimResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="drgFileContent" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="drgFileName" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="auditFileContent" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportFileContent" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorReport" type="s:base64Binary" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForNewPriorAuthorizationTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CheckForNewPriorAuthorizationTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="CheckForNewPriorAuthorizationTransactionsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPriorAuthorizationTransactions">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetNewPriorAuthorizationTransactionsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetNewPriorAuthorizationTransactionsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="foundTransactions" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDRGDetails">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="login" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="pwd" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlClaimInput" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="GetDRGDetailsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="1" maxOccurs="1" name="GetDRGDetailsResult" type="s:int" />
+            <s:element minOccurs="0" maxOccurs="1" name="xmlDRGDetails" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="auditFileContent" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="reportFileContent" type="s:base64Binary" />
+            <s:element minOccurs="0" maxOccurs="1" name="errorMessage" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </WL5G3N0:types>
+  <WL5G3N0:message name="UploadTransactionSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:UploadTransaction" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="UploadTransactionSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:UploadTransactionResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetNewTransactionsSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:GetNewTransactions" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetNewTransactionsSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:GetNewTransactionsResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="DownloadTransactionFileSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:DownloadTransactionFile" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="DownloadTransactionFileSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:DownloadTransactionFileResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SearchTransactionsSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:SearchTransactions" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SearchTransactionsSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:SearchTransactionsResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SetTransactionDownloadedSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:SetTransactionDownloaded" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="SetTransactionDownloadedSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:SetTransactionDownloadedResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetPrescriptionsSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:GetPrescriptions" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetPrescriptionsSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:GetPrescriptionsResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="AddDRGToEClaimSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:AddDRGToEClaim" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="AddDRGToEClaimSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:AddDRGToEClaimResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="CheckForNewPriorAuthorizationTransactionsSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:CheckForNewPriorAuthorizationTransactions" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="CheckForNewPriorAuthorizationTransactionsSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:CheckForNewPriorAuthorizationTransactionsResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetNewPriorAuthorizationTransactionsSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:GetNewPriorAuthorizationTransactions" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetNewPriorAuthorizationTransactionsSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:GetNewPriorAuthorizationTransactionsResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetDRGDetailsSoapIn">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:GetDRGDetails" />
+  </WL5G3N0:message>
+  <WL5G3N0:message name="GetDRGDetailsSoapOut">
+    <WL5G3N0:part name="parameters" element="WL5G3N1:GetDRGDetailsResponse" />
+  </WL5G3N0:message>
+  <WL5G3N0:portType name="WebservicesSoap">
+    <WL5G3N0:operation name="UploadTransaction">
+      <WL5G3N0:input message="WL5G3N1:UploadTransactionSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:UploadTransactionSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewTransactions">
+      <WL5G3N0:input message="WL5G3N1:GetNewTransactionsSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:GetNewTransactionsSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="DownloadTransactionFile">
+      <WL5G3N0:input message="WL5G3N1:DownloadTransactionFileSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:DownloadTransactionFileSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SearchTransactions">
+      <WL5G3N0:input message="WL5G3N1:SearchTransactionsSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:SearchTransactionsSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SetTransactionDownloaded">
+      <WL5G3N0:input message="WL5G3N1:SetTransactionDownloadedSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:SetTransactionDownloadedSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPrescriptions">
+      <WL5G3N0:input message="WL5G3N1:GetPrescriptionsSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:GetPrescriptionsSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="AddDRGToEClaim">
+      <WL5G3N0:input message="WL5G3N1:AddDRGToEClaimSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:AddDRGToEClaimSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="CheckForNewPriorAuthorizationTransactions">
+      <WL5G3N0:input message="WL5G3N1:CheckForNewPriorAuthorizationTransactionsSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:CheckForNewPriorAuthorizationTransactionsSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewPriorAuthorizationTransactions">
+      <WL5G3N0:input message="WL5G3N1:GetNewPriorAuthorizationTransactionsSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:GetNewPriorAuthorizationTransactionsSoapOut" />
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetDRGDetails">
+      <WL5G3N0:input message="WL5G3N1:GetDRGDetailsSoapIn" />
+      <WL5G3N0:output message="WL5G3N1:GetDRGDetailsSoapOut" />
+    </WL5G3N0:operation>
+  </WL5G3N0:portType>
+  <WL5G3N0:binding name="WebservicesSoap" type="WL5G3N1:WebservicesSoap">
+    <WL5G3N2:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N0:operation name="UploadTransaction">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/UploadTransaction" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewTransactions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/GetNewTransactions" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="DownloadTransactionFile">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/DownloadTransactionFile" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SearchTransactions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/SearchTransactions" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SetTransactionDownloaded">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/SetTransactionDownloaded" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPrescriptions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/GetPrescriptions" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="AddDRGToEClaim">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/AddDRGToEClaim" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="CheckForNewPriorAuthorizationTransactions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/CheckForNewPriorAuthorizationTransactions" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewPriorAuthorizationTransactions">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/GetNewPriorAuthorizationTransactions" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetDRGDetails">
+      <WL5G3N2:operation soapAction="https://www.shafafiya.org/v2/GetDRGDetails" style="document" />
+      <WL5G3N0:input>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <WL5G3N2:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:binding name="WebservicesSoap12" type="WL5G3N1:WebservicesSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <WL5G3N0:operation name="UploadTransaction">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/UploadTransaction" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewTransactions">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/GetNewTransactions" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="DownloadTransactionFile">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/DownloadTransactionFile" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SearchTransactions">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/SearchTransactions" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="SetTransactionDownloaded">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/SetTransactionDownloaded" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetPrescriptions">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/GetPrescriptions" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="AddDRGToEClaim">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/AddDRGToEClaim" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="CheckForNewPriorAuthorizationTransactions">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/CheckForNewPriorAuthorizationTransactions" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetNewPriorAuthorizationTransactions">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/GetNewPriorAuthorizationTransactions" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+    <WL5G3N0:operation name="GetDRGDetails">
+      <soap12:operation soapAction="https://www.shafafiya.org/v2/GetDRGDetails" style="document" />
+      <WL5G3N0:input>
+        <soap12:body use="literal" />
+      </WL5G3N0:input>
+      <WL5G3N0:output>
+        <soap12:body use="literal" />
+      </WL5G3N0:output>
+    </WL5G3N0:operation>
+  </WL5G3N0:binding>
+  <WL5G3N0:service name="Webservices">
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:documentation>OSB Service</WL5G3N0:documentation>
+    <WL5G3N0:port name="WebservicesSoap" binding="WL5G3N1:WebservicesSoap">
+      <WL5G3N2:address location="https://shafafiya.haad.ae/v2/webservices.asmx" />
+    </WL5G3N0:port>
+    <WL5G3N0:port name="WebservicesSoap12" binding="WL5G3N1:WebservicesSoap12">
+      <soap12:address location="https://shafafiya.haad.ae/v2/webservices.asmx" />
+    </WL5G3N0:port>
+  </WL5G3N0:service>
+</WL5G3N0:definitions>

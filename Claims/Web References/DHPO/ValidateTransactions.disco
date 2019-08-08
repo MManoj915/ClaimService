@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8"?>
+<discovery xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://schemas.xmlsoap.org/disco/">
+  <contractRef ref="https://dhpo.eclaimlink.ae/ValidateTransactions.asmx?wsdl" docRef="https://dhpo.eclaimlink.ae/ValidateTransactions.asmx" xmlns="http://schemas.xmlsoap.org/disco/scl/" />
+  <soap address="https://dhpo.eclaimlink.ae/ValidateTransactions.asmx" xmlns:q1="http://www.eClaimLink.ae/" binding="q1:ValidateTransactionsSoap" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+  <soap address="https://dhpo.eclaimlink.ae/ValidateTransactions.asmx" xmlns:q2="http://www.eClaimLink.ae/" binding="q2:ValidateTransactionsSoap12" xmlns="http://schemas.xmlsoap.org/disco/soap/" />
+</discovery>

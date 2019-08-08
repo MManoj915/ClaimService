@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema targetNamespace="ValidationSchema" version="1.0" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:simpleType name="HeaderDispositionFlag">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="TEST" />
+      <xs:enumeration value="PRODUCTION" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="PrescriptionType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="eRxRequest" />
+      <xs:enumeration value="eRxCancellation" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="DiagnosisType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Principal" />
+      <xs:enumeration value="Secondary" />
+      <xs:enumeration value="Admitting" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="FrequencyType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="Hour" />
+      <xs:enumeration value="Day" />
+      <xs:enumeration value="Week" />
+      <xs:enumeration value="Once" />
+    </xs:restriction>
+  </xs:simpleType>
+  <xs:simpleType name="ObservationType">
+    <xs:restriction base="xs:string">
+      <xs:enumeration value="LOINC" />
+      <xs:enumeration value="Text" />
+      <xs:enumeration value="File" />
+      <xs:enumeration value="Universal Dental" />
+      <xs:enumeration value="Financial" />
+      <xs:enumeration value="Grouping" />
+      <xs:enumeration value="ERX" />
+    </xs:restriction>
+  </xs:simpleType>
+</xs:schema>
